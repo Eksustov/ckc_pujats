@@ -12,5 +12,5 @@ $events = $db
         ->fetchAll();
 
     $title = "PASAKUMI";
-    include "views/index.view.php";
+    include "views/events.view.php";
 ?>
