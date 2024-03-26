@@ -2,9 +2,18 @@
 table, th, td {
 border: 2px solid black;
 border-collapse: collapse;
-height:20px;
-width:30%;
+height:2px;
+width:1%;
+text-align: center;
 }
 body {
     background-color:skyblue
+}
+input {
+    width:1%;
+    height:1%
+}
+img {
+    width:1px;
+    height:100vh;
 }

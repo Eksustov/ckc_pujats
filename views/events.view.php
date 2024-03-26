@@ -4,6 +4,10 @@
 <ul>
     <?php foreach($events as $event) {?>
     <li><?=$event["date"]?> / <?=$event["event"]?> / <?=$event["location"]?></li>
+    <form>
+        <button>Edit<img style="width:10px; height:10px; padding-left:5px" src="pencil.png" alt="pencil"/></button>
+        <button>Delete<img style="width:10px; height:10px; padding-left:5px" src="trash.png" alt="trash"></button>
+    </form>
     <?php } ?>
     
 </ul>
