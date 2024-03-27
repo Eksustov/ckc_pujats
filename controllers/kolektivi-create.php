@@ -3,6 +3,25 @@ $config = require("config.php");
 require "Database.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    $errors = [];
+
+    if (trim($_POST["name"]) == "") {
+        $errors["name"] = "Name cannot be empty";
+    }
+
+    if (strlen($_POST["name"]) > 80) {
+        $errors["name"] = "Name is too long";
+    }
+
+    if (trim($_POST["description"]) == "") {
+        $errors["description"] = "Description cannot be empty";
+    }
+
+    if (strlen($_POST["description"]) > 80) {
+        $errors["description"] = "Description is too long";
+    }
+
+    if (empty($errors)){
     $query = "INSERT INTO kolektivi (name, description)
     VALUES (:name, :description);";
     $params = [
@@ -14,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     
     header("Location: /kolektivi");
     die();
+    }
 }
     
 $title = "Augstākā būtne";

@@ -9,11 +9,10 @@ text-align: center;
 body {
     background-color:skyblue
 }
-input {
-    width:1%;
-    height:1%
-}
 img {
     width:1px;
     height:100vh;
+}
+input {
+    width:10%;
 }

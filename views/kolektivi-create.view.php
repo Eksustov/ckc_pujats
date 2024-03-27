@@ -3,11 +3,17 @@
 <h1> Add a Group </h1>
 <form method="POST">
     <label>Name:
-        <input name="name"/>
+        <input name="name" value='<?= ($_POST["name"] ?? "" ) ?>'/>
     </label>
     <label>Description:
-        <input name="description"/>
+        <input name="description" value='<?= ($_POST["description"] ?? "" ) ?>'/>
     </label>
     <button>Save</button>
+    <?php if (isset($errors["name"])) {?>
+        <p><?= $errors["name"] ?></p>
+        <?php } ?>
+        <?php if (isset($errors["description"])) {?>
+        <p><?= $errors["description"] ?></p>
+        <?php } ?>
 </form>
 <?php require "components/footer.php" ?>
