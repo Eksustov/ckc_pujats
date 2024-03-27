@@ -3,10 +3,10 @@
 <h1> Add a Group </h1>
 <form method="POST">
     <label>Name:
-        <input name="name" value='<?= ($_POST["name"] ?? "" ) ?>'/>
+        <input name="name" value='<?= htmlspecialchars(($_POST["name"] ?? "" )) ?>'/>
     </label>
     <label>Description:
-        <input name="description" value='<?= ($_POST["description"] ?? "" ) ?>'/>
+        <input name="description" value='<?= htmlspecialchars(($_POST["description"] ?? "" )) ?>'/>
     </label>
     <button>Save</button>
     <?php if (isset($errors["name"])) {?>
