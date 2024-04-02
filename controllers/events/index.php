@@ -3,14 +3,14 @@ $config = require("config.php");
 
 require "Database.php";
 
-$query = "SELECT * FROM kolektivi";
+$query = "SELECT * FROM events";
 $params = [];
 
 $db = new Database($config);
-$groups = $db
+$events = $db
         ->execute($query, $params)
-        ->FetchAll();
+        ->fetchAll();
 
-    $title = "KOLEKTIVI";
-    require "views/kolektivi.view.php";
+    $title = "PASAKUMI";
+    include "views/events/index.view.php";
 ?>
