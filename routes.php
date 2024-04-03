@@ -6,5 +6,8 @@ return $routes = [
     "/kolektivi-create" =>"controllers/kolektivi/create.php",
     "/events-delete" => "controllers/events/delete.php",
     "/kolektivi-delete" => "controllers/kolektivi/delete.php",
-    "/events-show" => "controllers/events/show.php"
+    "/events-show" => "controllers/events/show.php",
+    "/kolektivi-show" => "controllers/kolektivi/show.php",
+    "/events-edit" => "controllers/events/edit.php",
+    "/kolektivi-edit" => "controllers/kolektivi/edit.php"
 ];

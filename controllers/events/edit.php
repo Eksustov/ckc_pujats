@@ -10,5 +10,5 @@ $event = $db
         ->fetch();
 
 $title = "EDIT";
-include "views/events/show.view.php";
+include "views/events/edit.view.php";
 ?>
