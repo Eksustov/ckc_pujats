@@ -1,24 +1,18 @@
 <?php
 $config = require("config.php");
 require "Database.php";
+require "Validator.php";
+$validator = new Validator();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $errors = [];
 
-    if (trim($_POST["name"]) == "") {
-        $errors["name"] = "Name cannot be empty";
+    if (!Validator::string($_POST["name"], min: 1, max:80)) {
+        $errors["name"] = "Name cannot be empty or too long";
     }
 
-    if (strlen($_POST["name"]) > 80) {
-        $errors["name"] = "Name is too long";
-    }
-
-    if (trim($_POST["description"]) == "") {
-        $errors["description"] = "Description cannot be empty";
-    }
-
-    if (strlen($_POST["description"]) > 80) {
-        $errors["description"] = "Description is too long";
+    if (!Validator::string($_POST["description"], min: 1, max:80)) {
+        $errors["description"] = "Description cannot be empty or too long";
     }
 
     if (empty($errors)){

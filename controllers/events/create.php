@@ -1,6 +1,8 @@
 <?php
 $config = require("config.php");
 require "Database.php";
+require "Validator.php";
+$validator = new Validator();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -8,20 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $errors["date"] = "Date cannot be empty";
     }
 
-    if (trim($_POST["event"]) == "") {
-        $errors["event"] = "Event cannot be empty";
+    if (!Validator::string($_POST["event"], min: 1, max:80)) {
+        $errors["event"] = "Event cannot be empty or too long";
     }
 
-    if (strlen($_POST["event"]) > 80) {
-        $errors["event"] = "Name is too long";
-    }
-
-    if (trim($_POST["location"]) == "") {
-        $errors["location"] = "Location cannot be empty";
-    }
-
-    if (strlen($_POST["location"]) > 80) {
-        $errors["location"] = "Location is too long";
+    if (!Validator::string($_POST["location"], min: 1, max:255)) {
+        $errors["location"] = "Location cannot be empty or too long";
     }
 
     if (empty($errors)) {
